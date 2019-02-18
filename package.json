@@ -1,0 +1,23 @@
+{
+  "name": "socialmining",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ettorepuccetti/SocialMining.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ettorepuccetti/SocialMining/issues"
+  },
+  "homepage": "https://github.com/ettorepuccetti/SocialMining#readme"
+}
