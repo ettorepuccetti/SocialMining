@@ -10,17 +10,28 @@
 		<!-- CSS libraries -->
 		<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link href="node_modules/nvd3/build/nv.d3.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+		integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+		crossorigin=""/>
 
 		<!-- Javascript libraries -->
 		<script src="node_modules/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="node_modules/d3/d3.min.js" type="text/javascript" type="text/javascript" charset="utf-8"></script>
 		<script src="node_modules/nvd3/build/nv.d3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+		integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+		crossorigin=""></script>
 
-		<!-- Custom Javascript libraries -->
+		<!-- Custom Javascript scripts -->
 		<script src="assets/js/eventhandler.js" type="text/javascript" charset="utf-8"></script>
 		<script src="assets/js/toolbarday.js" type="text/javascript" charset="utf-8"></script>
 		<script src="assets/js/barchart.js" type="text/javascript" charset="utf-8"></script>
+		<script src="assets/js/map.js" type="text/javascript" charset="utf-8"></script>
+
+		<style type="text/css" media="screen">
+			#mapid { height: 400px; margin: 30px}
+		</style>
 
 	</head>
 
@@ -30,6 +41,7 @@
 			<div class = "toolbars">
 				<div class = "tool" id="toolbar_day"> </div>
 			</div>
+			<div id="mapid"></div>
 			<div class = "firstrow">
 				<div id="graph" class="col-xs-12"> </div>
 			</div>

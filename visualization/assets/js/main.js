@@ -3,6 +3,8 @@ function app(){
     var day = "23 Oct"
     var barchart
     var toolbarday
+    var map
+    var area
     
     function me(){
         // toolbar
@@ -23,11 +25,30 @@ function app(){
                 .datum(data)
                 .call(barchart)
         });
+
+        //map
+        map = MyMap();
+        d3.csv("assets/data/access_per_day.csv",function(error, data){
+            if (error) throw error
+            d3.select("#mapid")
+                .datum(data)
+                .call(map)
+        });
     }
 
     me.day = function(_){
         if(!arguments.length) return day;
         day = _;
+    }
+
+    me.area = function(_){
+        if(!arguments.length) return area;
+        area = _;
+    }
+
+    me.updateMap = function(day,area) {
+        map.deleteCircles();
+        map.drawCircles(day,area);
     }
 
     me.updateChart = function(day) {
@@ -41,3 +62,6 @@ function app(){
 var myApp = app();
 d3.select("#viz")
     .call(myApp)
+
+
+

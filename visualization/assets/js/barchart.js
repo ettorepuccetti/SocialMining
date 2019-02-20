@@ -5,13 +5,22 @@ function BarChart(){
     var chart = nv.models.discreteBarChart()
     var data
     var day = "23 Oct"
+    var area;
+    var max;
    
-
-    chart.yDomain([0,800])
-    chart.yScale(d3.scale.sqrt())
-
+    chart.yScale(d3.scale.sqrt());
     chart.showXAxis(false);
-            
+    
+    chart.discretebar.dispatch.on('elementClick', function(e){
+        console.log('element: ' + e.data.x);
+        if (e.data.x == area) {
+            area = null
+        } else {
+            area = e.data.x
+        }
+        myApp.area(area);
+        myApp.updateMap(day,area);
+    });
     
     function me(selection) {
 
@@ -39,8 +48,10 @@ function BarChart(){
             return (d.timestamp.split("/")[0] == day.split(" ")[0])
         })
         var filteredTen = filteredDay.filter( function(d,i) {
-            return (i < 10)
+            return (i < 20)
         })
+        max = Math.max.apply(null,filteredTen.map(function(d) {return parseInt(d.count)}));
+        chart.yDomain([0,max])
         var r = [{
             key: label,
             values: filteredTen.map(function(d) {
