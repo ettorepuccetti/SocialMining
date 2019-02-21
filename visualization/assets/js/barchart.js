@@ -21,6 +21,9 @@ function BarChart(){
         myApp.area(area);
         myApp.updateMap(day,area);
     });
+
+    nv.utils.windowResize(function() { chart.update() });
+
     
     function me(selection) {
 
