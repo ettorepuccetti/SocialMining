@@ -33,6 +33,7 @@
 
 		<style type="text/css" media="screen">
 			#mapid { height: 400px; margin: 30px}
+			p {font: italic bold 12px/30px Georgia, serif;}
 		</style>
 
 	</head>
@@ -40,9 +41,20 @@
 	<body class=container>
 		<h1 align="center"> Social Mining </h1>
 		<div id="viz" class="row">
+			<p>
+				This is the first experiment of Wi-Fi data visualization from Pisa Univeristy Campus
+				Click on ToolBar to select one day or select ALL to vsualize the whole period		
+			</p>
 			<div class = "tool" id="toolbar_day"> </div>
 			<div id="mapid"></div>
+			<p>
+			These are the 20 most used areas. Select one or more bar to visualize them on the map. Click twice or select nother day to view all areas again
+			<p/>
 			<div id="graph" class="col-xs-12"> </div>
+			<P>
+			Click on one or more coulored dots to select the respective area on graph below or double click to invert the selection.<br>
+			Move the mouse on the vertical line to see the values of selected area across the days
+			<p/>
 			<div id="clcid" class="col-xs-12"> </div>
 	
 		</div>
