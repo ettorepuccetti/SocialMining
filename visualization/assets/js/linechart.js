@@ -4,7 +4,7 @@ function lineChart(){
     var svg
     var chart = nv.models.lineChart()
     var data
-    var day = "23 Oct"
+    var day = "07 Nov"
     var area;
     var max;
     var parser =  d3.time.format('%d/%m/%Y');
@@ -12,9 +12,9 @@ function lineChart(){
     chart.yScale(d3.scale.sqrt())
         //.color(d3.scale.category10().range())
         .useInteractiveGuideline(true);
-            
+
     chart.xAxis
-        .tickValues(["23/10/2018","24/10/2018","9/11/2018","10/11/2018","11/11/2018","12/11/2018"].map(
+        .tickValues(["07/11/2018","08/11/2018","9/11/2018","10/11/2018","11/11/2018","12/11/2018"].map(
             function(d) {return parser.parse(d).getTime()}
         ))
         .tickFormat(function(d) {

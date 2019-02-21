@@ -4,7 +4,7 @@ function BarChart(){
     var svg
     var chart = nv.models.discreteBarChart()
     var data
-    var day = "23 Oct"
+    var day = "07 Nov"
     var area;
     var max;
    

@@ -1,6 +1,6 @@
 function app(){
     
-    var day = "23 Oct"
+    var day = "07 Nov"
     var barchart
     var toolbarday
     var map
@@ -57,7 +57,7 @@ function app(){
     }
 
     me.updateMap = function(day,area) {
-        map.deleteCircles();
+        if (!area) map.deleteCircles();
         map.drawCircles(day,area);
     }
 

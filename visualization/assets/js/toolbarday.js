@@ -8,7 +8,7 @@ function ToolbarDays(){
             toolbar.append("label")
                 .text("Day:");
 
-            daySet =["23 Oct","24 Oct","9 Nov","10 Nov","11 Nov", "12 Nov","ALL"]
+            daySet =["07 Nov","08 Nov","9 Nov","10 Nov","11 Nov", "12 Nov","ALL"]
             var tbYear = toolbar.append("div")
                 .attr({id:"mode-group", class:"btn-group", "data-toggle":"buttons" })
                 .selectAll("button")

@@ -3,7 +3,7 @@ function MyMap () {
     var accessToken = "pk.eyJ1Ijoicm9iZXJ0b3B1Y2NldHRpIiwiYSI6ImNqc2N5NzhmZTAxYXgzeXA0a2pyeGdpMDkifQ.1BIHGcbJ7OFoF8E04c5dng";
     var data;
     var circlearray = [];
-    var day = "23 Oct";
+    var day = "07 Nov";
 
     function me (selection) {
         mymap = L.map('mapid').setView([43.712, 10.40], 12);
@@ -44,10 +44,15 @@ function MyMap () {
         }
 
         filteredDay.forEach(d => {
+            var color = "grey"
+            if (area) {
+                if (d.area = area) color = "red"
+                else color = "grey"
+            }
             var circle = L.circle([d.lat, d.lon], 
                 {
-                    color: 'red',
-                    fillColor: '#f03',
+                    color: color,
+                    fillColor: color,
                     fillOpacity: 0.5,
                     radius: Math.sqrt(d.count) * 2.0
                 })
