@@ -34,6 +34,16 @@ function app(){
                 .datum(data)
                 .call(map)
         });
+
+        // cumulativeLineChart
+        clc=cumulativelinechart();
+        d3.csv("assets/data/access_per_day.csv",function(error, data){
+            if (error) throw error
+            d3.select("#clcid")
+                .datum(data)
+                .call(clc)
+        });
+
     }
 
     me.day = function(_){

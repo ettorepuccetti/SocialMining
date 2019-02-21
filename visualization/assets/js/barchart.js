@@ -45,8 +45,11 @@ function BarChart(){
 
     function prepareData(data) {
         var filteredDay = data.filter(function(d,i) {
-            return (d.timestamp.split("/")[0] == day.split(" ")[0])
+            return (d.timestamp.split("/")[0] == day.split(" ")[0] || day=="ALL")
         })
+        if (day=="ALL"){
+            filteredDay=groupBy(filteredDay,"area")
+        }
         var filteredTen = filteredDay.filter( function(d,i) {
             return (i < 20)
         })
