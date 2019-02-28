@@ -3,7 +3,6 @@ function MyMap () {
     var accessToken = "pk.eyJ1Ijoicm9iZXJ0b3B1Y2NldHRpIiwiYSI6ImNqc2N5NzhmZTAxYXgzeXA0a2pyeGdpMDkifQ.1BIHGcbJ7OFoF8E04c5dng";
     var data;
     var circlearray = [];
-    var day = "07 Nov";
 
     function me (selection) {
         mymap = L.map('mapid').setView([43.712, 10.40], 12);
@@ -16,7 +15,7 @@ function MyMap () {
 
         data = selection.datum();
         
-        me.drawCircles(day);
+        me.drawCircles();
         
         return me;
     }
@@ -27,8 +26,9 @@ function MyMap () {
        }); 
     }
 
-    me.drawCircles = function (day,area) {
-
+    me.drawCircles = function (area) {
+        var day = myApp.day();
+        
         var filteredDay = data.filter(function(d,i) {
             return (d.timestamp.split("/")[0] == day.split(" ")[0] || day=="ALL")
         })

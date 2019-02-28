@@ -1,10 +1,12 @@
 function app(){
     
     var day = "07 Nov"
+    var area
     var barchart
     var toolbarday
     var map
-    var area
+    
+    //var fs = require('fs');
     
     function me(){
         // toolbar
@@ -56,12 +58,12 @@ function app(){
         area = _;
     }
 
-    me.updateMap = function(day,area) {
+    me.updateMap = function() {
         if (!area) map.deleteCircles();
-        map.drawCircles(day,area);
+        map.drawCircles(area);
     }
 
-    me.updateChart = function(day) {
+    me.updateChart = function() {
         barchart.updateChart(day)
     }
 

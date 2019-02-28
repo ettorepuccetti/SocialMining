@@ -1,16 +1,11 @@
 function lineChart(){
-    var width = 400, height = 700;
-    var label = "comparative access count"
-    var svg
-    var chart = nv.models.lineChart()
-    var data
-    var day = "07 Nov"
-    var area;
+    
     var max;
+    var height = 700;
+    var chart = nv.models.lineChart()
     var parser =  d3.time.format('%d/%m/%Y');
    
     chart.yScale(d3.scale.sqrt())
-        //.color(d3.scale.category10().range())
         .useInteractiveGuideline(true);
 
     chart.xAxis
@@ -23,25 +18,19 @@ function lineChart(){
 
     nv.utils.windowResize(function() { chart.update() });
     
+
     function me(selection) {
 
-        data = selection.datum()
+        var data = selection.datum()
 
-        svg = selection.append("svg")
-            .attr({width:"100%", height:height});
+        var svg = selection.append("svg")
+            .attr({width:"100%", height:height})
+            .datum(prepareData(data))
+            .call(chart)
             
-        me.updateChart()
-
         return me
     }
 
-    
-    me.updateChart = function() {
-        svg.datum(prepareData(data))
-            .call(chart)
-
-        return me;
-    }
 
     function prepareData(data) {
         max = Math.max.apply(null,data.map(function(d) {return parseInt(d.count)}));

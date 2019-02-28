@@ -4,22 +4,15 @@ function BarChart(){
     var svg
     var chart = nv.models.discreteBarChart()
     var data
-    var day = "07 Nov"
-    var area;
     var max;
    
     chart.yScale(d3.scale.sqrt());
     chart.showXAxis(false);
     
-    chart.discretebar.dispatch.on('elementClick', function(e){
-        console.log('element: ' + e.data.x);
-        if (e.data.x == area) {
-            area = null
-        } else {
-            area = e.data.x
-        }
-        myApp.area(area);
-        myApp.updateMap(day,area);
+    chart.discretebar.dispatch.on('elementClick', function(d){
+        if (d.data.x == myApp.area()) { myApp.area(null) } 
+        else { myApp.area(d.data.x) }
+        myApp.updateMap();
     });
 
     nv.utils.windowResize(function() { chart.update() });
@@ -32,14 +25,13 @@ function BarChart(){
         svg = selection.append("svg")
             .attr({width:"100%", height:height});
             
-        me.updateChart(day)
+        me.updateChart()
 
         return me
     }
 
     
-    me.updateChart = function(selectedDay) {
-        day = selectedDay
+    me.updateChart = function() {
         svg.datum(prepareData(data))
             .call(chart)
 
@@ -47,6 +39,7 @@ function BarChart(){
     }
 
     function prepareData(data) {
+        var day = myApp.day()
         var filteredDay = data.filter(function(d,i) {
             return (d.timestamp.split("/")[0] == day.split(" ")[0] || day=="ALL")
         })
