@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 64,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -11,7 +11,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 65,
+   "execution_count": 23,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -27,7 +27,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 66,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -38,7 +38,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 67,
+   "execution_count": 4,
    "metadata": {
     "scrolled": true
    },
@@ -325,7 +325,7 @@
        "19                    Facoltà di Lingue  "
       ]
      },
-     "execution_count": 67,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -353,7 +353,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 68,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -362,7 +362,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 69,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -376,7 +376,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 70,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -385,7 +385,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 71,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -394,7 +394,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 72,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -403,13 +403,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 73,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "e0caad2ad16a4cf58fb9d7da32d8cd24",
+       "model_id": "5c62d8f4d3334b90b21264d057a62643",
        "version_major": 2,
        "version_minor": 0
       },
@@ -454,7 +454,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 74,
+   "execution_count": 13,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -464,7 +464,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 75,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -476,7 +476,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 76,
+   "execution_count": 14,
    "metadata": {
     "scrolled": true
    },
@@ -550,7 +550,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 77,
+   "execution_count": 15,
    "metadata": {
     "scrolled": true
    },
@@ -558,7 +558,7 @@
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "0f3432243e614de28a4eb634e170d7bb",
+       "model_id": "6b7fd434a1b84a78b45d48ba574609e9",
        "version_major": 2,
        "version_minor": 0
       },
@@ -574,6 +574,17 @@
      "output_type": "stream",
      "text": [
       "\n"
+     ]
+    },
+    {
+     "ename": "TypeError",
+     "evalue": "'module' object is not callable",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-15-ed645448cb58>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     38\u001b[0m     \u001b[0marchi_graph\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mappend\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0msingle_arch\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     39\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 40\u001b[0;31m \u001b[0mG\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mnx\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgraph\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     41\u001b[0m \u001b[0mG\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0madd_edges_from\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0marchi_graph\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mTypeError\u001b[0m: 'module' object is not callable"
      ]
     }
    ],
