@@ -43,22 +43,41 @@ function BarChart(){
         var filteredDay = data.filter(function(d,i) {
             return (d.timestamp.split("/")[0] == day.split(" ")[0] || day=="ALL")
         })
-        if (day=="ALL"){
-            filteredDay=groupBy(filteredDay,"area")
-        }
-        var filteredTen = filteredDay.filter( function(d,i) {
+        filteredDay=groupBy(filteredDay,"area")
+        var filteredDaySorted=sort_object(filteredDay);
+        var filtered_n = filteredDaySorted.filter(function(d,i) {
             return (i < 20)
         })
-        max = Math.max.apply(null,filteredTen.map(function(d) {return parseInt(d.count)}));
+        var filtered_n = filteredDaySorted
+        max = Math.max.apply(null,filtered_n.map(function(d) {return parseInt(d.count)}));
         chart.yDomain([0,max])
         var r = [{
             key: label,
-            values: filteredTen.map(function(d) {
+            values: filtered_n.map(function(d) {
                 return {key: label, x: d.area, y: d.count};
             })
         }]
         return r
     }
+
+function sort_object(obj) {
+        items = Object.keys(obj).map(function(key) {
+            return [obj[key]["count"], obj[key]];
+        });
+        items.sort(function(a, b) {
+            return b - a;
+        });
+        sorted_obj=[]
+        
+        $.each(items, function(k, v) {
+            use_key = k;
+            use_value = v[1];
+            sorted_obj[use_key] = use_value
+        })
+        return(sorted_obj)
+    } 
+
+
 
     return me
 }

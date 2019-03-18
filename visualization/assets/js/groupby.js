@@ -1,8 +1,14 @@
  var groupBy = function(xs, key) {
+    var h1 = myApp.hour1()
+	var h2 = myApp.hour2()
     var arrayDict = [];
     var rv = xs.reduce(function(rv, x) {
-        if (rv[x[key]]) rv[x[key]] = [parseInt(rv[x[key]])+parseInt(x["count"]) , x["lat"], x["lon"]];
-        else rv[x[key]] = [parseInt(x["count"]),x["lat"], x["lon"]];
+        if (rv[x[key]] && parseInt(x["hour"]) >= parseInt(h1) && parseInt(x["hour"]) < parseInt(h2)) {
+         rv[x[key]] = [parseInt(rv[x[key]])+parseInt(x["count"]) , x["lat"], x["lon"]]
+        }
+        else if (parseInt(x["hour"]) >= parseInt(h1) && parseInt(x["hour"]) < parseInt(h2)){
+                rv[x[key]] = [parseInt(x["count"]),x["lat"], x["lon"]];
+            } 
         return rv;
     }, {});
     for (elem in rv) {

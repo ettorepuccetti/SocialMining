@@ -2,8 +2,7 @@ function MyMap () {
     var mymap;
     var accessToken = "pk.eyJ1Ijoicm9iZXJ0b3B1Y2NldHRpIiwiYSI6ImNqc2N5NzhmZTAxYXgzeXA0a2pyeGdpMDkifQ.1BIHGcbJ7OFoF8E04c5dng";
     var data;
-    var circlearray = [];
-
+    var circlearray = [];   
     function me (selection) {
         mymap = L.map('mapid').setView([43.712, 10.40], 12);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -28,14 +27,16 @@ function MyMap () {
 
     me.drawCircles = function (area) {
         var day = myApp.day();
+        var hour = myApp.hour();
         
         var filteredDay = data.filter(function(d,i) {
             return (d.timestamp.split("/")[0] == day.split(" ")[0] || day=="ALL")
         })
 
-         if (day=="ALL"){
-            filteredDay=groupBy(filteredDay,"area")
-        }
+
+//         if (day=="ALL"){
+        filteredDay=groupBy(filteredDay,"area")
+//        }
 
         if (area) {
             var filteredDay = filteredDay.filter( d => {
