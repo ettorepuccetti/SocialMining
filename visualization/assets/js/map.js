@@ -55,7 +55,8 @@ function MyMap () {
                     color: color,
                     fillColor: color,
                     fillOpacity: 0.5,
-                    radius: Math.sqrt(d.count) * 2.0
+                    radius: Math.sqrt(d.count) * 4.0/Math.PI
+                    
                 })
             circle.bindPopup(d.area + "<br /> accessi: "+ d.count);
             circle.on('mouseover', e => {circle.openPopup();})

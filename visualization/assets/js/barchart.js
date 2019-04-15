@@ -5,9 +5,10 @@ function BarChart(){
     var chart = nv.models.discreteBarChart()
     var data
     var max;
-   
-    chart.yScale(d3.scale.sqrt());
+
+    chart.yScale(d3.scale.linear());
     chart.showXAxis(false);
+    chart.color(d3.schemeBlues[3]);
     
     chart.discretebar.dispatch.on('elementClick', function(d){
         if (d.data.x == myApp.area()) { myApp.area(null) } 
@@ -60,23 +61,22 @@ function BarChart(){
         return r
     }
 
-function sort_object(obj) {
+    function sort_object(obj) {
         items = Object.keys(obj).map(function(key) {
             return [obj[key]["count"], obj[key]];
         });
         items.sort(function(a, b) {
-            return b - a;
+            return b[0] - a[0];
         });
         sorted_obj=[]
-        
+
         $.each(items, function(k, v) {
             use_key = k;
             use_value = v[1];
             sorted_obj[use_key] = use_value
         })
         return(sorted_obj)
-    } 
-
+    }
 
 
     return me
