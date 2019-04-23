@@ -13,14 +13,10 @@ function app(){
     //var fs = require('fs');
     
     function me(){
-        // toolbar days
-        toolbarday = ToolbarDays();
-        d3.select("#toolbar_day")
-            .call(toolbarday)
-        d3.select("#toolbar_day").select("div.btn-group") 
-            .selectAll("button") 
-            .classed("active",function(d){return d==day}) 
-            .classed("btn-primary",function(d){return d==day});
+ 
+
+        // calendar
+        Calendar()
 
         // toolbar hours
         toolbarhour = ToolbarHours();
@@ -30,6 +26,7 @@ function app(){
             .selectAll("button") 
             .classed("active",function(d){return d==hour}) 
             .classed("btn-primary",function(d){return d==hour});
+
 
         // barchart
         barchart = BarChart();
@@ -58,6 +55,11 @@ function app(){
                 .call(linechart)
         });
 
+    }
+
+    me.calendar = function(_){
+        if(!arguments.length) return calendar;
+        calendar = _;
     }
 
     me.day = function(_){
