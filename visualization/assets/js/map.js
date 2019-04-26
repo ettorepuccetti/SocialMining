@@ -30,7 +30,7 @@ function MyMap () {
         var hour = myApp.hour();
         
         var filteredDay = data.filter(function(d,i) {
-            return (d.timestamp.split("/")[0] == day.split(" ")[0] || day=="ALL")
+            return (d.timestamp == day || day=="ALL")
         })
 
 

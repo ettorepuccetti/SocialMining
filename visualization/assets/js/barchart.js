@@ -42,7 +42,7 @@ function BarChart(){
     function prepareData(data) {
         var day = myApp.day()
         var filteredDay = data.filter(function(d,i) {
-            return (d.timestamp.split("/")[0] == day.split(" ")[0] || day=="ALL")
+            return (d.timestamp == day || day=="ALL")
         })
         filteredDay=groupBy(filteredDay,"area")
         var filteredDaySorted=sort_object(filteredDay);

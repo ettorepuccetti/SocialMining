@@ -9,12 +9,9 @@ function lineChart(){
         .useInteractiveGuideline(true);
 
     chart.xAxis
-        .tickValues(["07/11/2018","08/11/2018","09/11/2018","10/11/2018","11/11/2018","12/11/2018"].map(
-            function(d) {return parser.parse(d).getTime()}
-        ))
-        .tickFormat(function(d) {
-           return parser(new Date(d))
-        });
+        .tickValues(["00-08","08-10","10-12","12-14","14-16","16-18","18-20","20-24"].map(
+            function(d) {return parseInt(d)}
+        ));
 
     nv.utils.windowResize(function() { chart.update() });
     
@@ -36,12 +33,13 @@ function lineChart(){
         max = Math.max.apply(null,data.map(function(d) {return parseInt(d.count)}));
         chart.yDomain([0,max])
         dataGrouped = groupByLine(data,"area")
-        return dataGrouped.filter((d,i) => {return i<20})
+        return dataGrouped
     }
 
     var groupByLine = function(xs, key) {
         var h1 = myApp.hour1()
         var h2 = myApp.hour2()
+        var day = myApp.day
         var arrayDict = [];
         var accumula = 0
         var rv = xs.reduce(function(rv, x) {
@@ -52,8 +50,8 @@ function lineChart(){
  //       else if (parseInt(x["hour"]) >= parseInt(h1) && parseInt(x["hour"]) < parseInt(h2)) {
  //               rv[x[key]] =[x["count"], x["timestamp"],x["hour"]]
  //           }
-        if (rv[x[key]]) rv[x[key]].push([x["count"], x["timestamp"]])
-            else rv[x[key]] = [[x["count"], x["timestamp"]]];
+        if (rv[x[key]]) rv[x[key]].push([x["count"], x["Hour"]])
+            else rv[x[key]] = [[x["count"], x["Hour"]]];
 
         return rv;
 
@@ -63,7 +61,7 @@ function lineChart(){
         for (elem in rv) {
             var rv_formatted = {
                 "key": elem,
-                "values": rv[elem].map(d => ( {"x": parser.parse(d[1]).getTime(), "y": d[0]} ))
+                "values": rv[elem].map(d => ( {"x": parseInt(d[1]), "y": d[0]} ))
             };
             arrayDict.push(rv_formatted);
         }

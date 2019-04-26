@@ -27,7 +27,7 @@ function Calendar () {
 
     //todays date
     var today = new Date();
-    today=addDays(today, -62)
+    today=addDays(today, -122)
 
     //last Years date
     var lastYear = addDays(today,-365);
@@ -44,6 +44,7 @@ function Calendar () {
     //formatters for yaxis and tool tip
     var yAxisFormatter = d3.time.format("%b");
     var tipFormatter = d3.time.format("%b %e, %Y");
+    var DateFormatter = d3.time.format("%d/%m/%Y");
 
     //for 365 days
     for (i=0; i <= 365; i++){
@@ -86,8 +87,8 @@ function Calendar () {
     if (c === 6){ col++; }
     }
 
-    var margin = {top: 70, right: 70, bottom: 70, left: 90}; //margins
-    var width = 11 + (53*13); // 1 square + 53 squares with 2px padding
+    var margin = {top: 70, right: 70, bottom: 70, left: 80}; //margins
+    var width = 61 + (53*13); // 1 square + 53 squares with 2px padding
     var height = 11 + 6*13; //1 square + 6 squares with 2px padding
     var legendX = 540; //x Position for legend
     var legendY = height + 10; //y position for legend
@@ -225,7 +226,7 @@ function Calendar () {
             .attr('y',yPosition - 60)
             .attr('rx',3)
             .attr('ry',3)
-            .attr('width',160)
+            .attr('width',230)
             .attr('height',50)
             .style({
             'fill': 'rgba(0,0,0,0.9)',
@@ -236,7 +237,7 @@ function Calendar () {
         svg.append('text')
             .text(d.count + " logs on " + tipFormatter(d.date))
             .attr('x',xPosition - 85)
-            .attr('y',yPosition - 30)
+            .attr('y',yPosition - 35)
             .style({
                 fill: "#FFF",
                 'font-weight': 'bold',
@@ -249,7 +250,7 @@ function Calendar () {
         svg.selectAll('.tip').remove();
         })
         .on("click", function(d){ 
-            dispatch.changeDay(d); 
+            dispatch.changeDay(DateFormatter(d.date)); 
         }); 
     });
 }
