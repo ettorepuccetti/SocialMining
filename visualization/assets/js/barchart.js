@@ -9,7 +9,7 @@ function BarChart(){
     chart.yScale(d3.scale.linear());
     chart.showXAxis(false);
     chart.color(d3.schemeBlues[3]);
-    
+     
     chart.discretebar.dispatch.on('elementClick', function(d){
         if (d.data.x == myApp.area()) { myApp.area(null) } 
         else { myApp.area(d.data.x) }

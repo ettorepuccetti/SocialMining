@@ -8,14 +8,13 @@ function app(){
     var barchart
     var toolbarday
     var map
-
-    
+    var dati   
+       
     //var fs = require('fs');
     
     function me(){
- 
-
-        // calendar
+      
+    // calendar
         Calendar()
 
         // toolbar hours
@@ -27,8 +26,7 @@ function app(){
             .classed("active",function(d){return d==hour}) 
             .classed("btn-primary",function(d){return d==hour});
 
-
-        // barchart
+         // barchart
         barchart = BarChart();
         d3.csv("assets/data/access_per_day_per_ora.csv",function(error, data){
             if (error) throw error
@@ -43,12 +41,12 @@ function app(){
             if (error) throw error
             d3.select("#mapid")
                 .datum(data)
-                .call(map)
+                .call(map);
         });
 
         // linechart
         linechart = lineChart();
-        d3.csv("assets/data/access_per_day.csv",function(error, data){
+        d3.csv("assets/data/access_per_day_per_ora.csv",function(error, data){
             if (error) throw error
             d3.select("#clcid")
                 .datum(data)
@@ -87,6 +85,11 @@ function app(){
         area = _;
     }
 
+    me.dati = function(_){
+        if(!arguments.length) return dati;
+        dati = _;
+    }
+
     me.updateMap = function() {
         if (!area) map.deleteCircles();
         map.drawCircles(area);
@@ -94,6 +97,10 @@ function app(){
 
     me.updateChart = function() {
         barchart.updateChart(day)
+    }
+    
+    me.updateLineChart = function() {
+        linechart.updateLineChart(day)
     }
 
     me.clearMap = function() {

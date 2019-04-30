@@ -6,6 +6,7 @@ dispatch.on("changeDay", function(d){
 	myApp.day(d);
 	myApp.area(null);
 	myApp.updateChart();
+	myApp.updateLineChart();
 	myApp.updateMap();
 	console.log("click day", d);
 	d3.select("#toolbar_day").select("div.btn-group") 
