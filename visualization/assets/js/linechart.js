@@ -64,8 +64,7 @@ function lineChart(){
         max = Math.max.apply(null,filteredDay.map(function(d) {return parseInt(d.count)}));
         chart.yDomain([0,max])
         dataGrouped = groupByLine(filteredDay,"area")
-        return dataGrouped.filter((d,i) => {return i<20})
-//        dataGrouped =sort_object(dataGrouped)
+        dataGrouped = dataGrouped.filter((d,i) => {return i<20})
         return dataGrouped
     }
 
@@ -90,6 +89,7 @@ function lineChart(){
                     coppie_count_ora.push(["0",String(i)])
                 }
             }
+            coppie_count_ora.sort((a,b) => (a[1] - b[1]))
             var rv_formatted = {
                 "key": elem,
                 "values": coppie_count_ora.map(d => ( {"x": parseInt(d[1]), "y": d[0]} ))
