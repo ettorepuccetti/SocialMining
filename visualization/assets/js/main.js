@@ -1,7 +1,7 @@
 function app(){
     
     var DateFormatter = d3.time.format("%d/%m/%Y");
-    var day = DateFormatter(new Date())
+    var day = DateFormatter(new Date("December 31 2018 00:00"))
     var hour = "ALL"
     var hour1 = 0
     var hour2 = 24
@@ -9,53 +9,46 @@ function app(){
     var barchart
     var toolbarday
     var map
-    var dati   
+    var dati
        
     //var fs = require('fs');
     
     function me(){
-      
     // calendar
         Calendar()
 
-        // toolbar hours
-        toolbarhour = ToolbarHours();
-        d3.select("#toolbar_hour")
-            .call(toolbarhour)
-        d3.select("#toolbar_hour").select("div.btn-group") 
-            .selectAll("button") 
-            .classed("active",function(d){return d==hour}) 
-            .classed("btn-primary",function(d){return d==hour});
-
-         // barchart
-        barchart = BarChart();
         d3.csv("assets/data/access_per_day_per_ora.csv",function(error, data){
             if (error) throw error
+
+            // toolbar hours
+            toolbarhour = ToolbarHours();
+            d3.select("#toolbar_hour")
+                .call(toolbarhour)
+            d3.select("#toolbar_hour").select("div.btn-group") 
+                .selectAll("button") 
+                .classed("active",function(d){return d==hour}) 
+                .classed("btn-primary",function(d){return d==hour});
+
+            // barchart
+    
+            barchart = BarChart();
             d3.select("#graph")
-                .datum(data)
-                .call(barchart)
-        });
-
-        //map
-        map = MyMap();
-        d3.csv("assets/data/access_per_day_per_ora.csv",function(error, data){
-            if (error) throw error
+                    .datum(data)
+                    .call(barchart);      
+        
+            //map
+            map = MyMap();
             d3.select("#mapid")
-                .datum(data)
-                .call(map);
-        });
-
-        // linechart
-        linechart = lineChart();
-        d3.csv("assets/data/access_per_day_per_ora.csv",function(error, data){
-            if (error) throw error
+                    .datum(data)
+                    .call(map);
+            
+            // linechart
+            linechart = lineChart();
             d3.select("#clcid")
-                .datum(data)
-                .call(linechart)
+                    .datum(data)
+                    .call(linechart)
         });
-
     }
-
     me.calendar = function(_){
         if(!arguments.length) return calendar;
         calendar = _;
@@ -115,7 +108,6 @@ function app(){
 
     return me;
 }
-
 
 var myApp = app();
 d3.select("#viz")

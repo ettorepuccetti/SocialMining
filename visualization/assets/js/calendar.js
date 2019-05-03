@@ -26,7 +26,7 @@ function Calendar () {
     var yAxis = [];
 
     //todays date
-    var today = new Date()
+    var today = new Date("December 31 2018 00:00")
     // today=addDays(today, -122)
 
     //last Years date
@@ -87,7 +87,7 @@ function Calendar () {
     if (c === 6){ col++; }
     }
 
-    var margin = {top: 70, right: 70, bottom: 70, left: 80}; //margins
+    var margin = {top: 70, right: 70, bottom: 70, left: 20}; //margins
     var width = 61 + (53*13); // 1 square + 53 squares with 2px padding
     var height = 11 + 6*13; //1 square + 6 squares with 2px padding
     var legendX = 540; //x Position for legend
@@ -163,7 +163,7 @@ function Calendar () {
 
     svg.append('text')
     .attr('class','legend')
-    .attr('x', legendX - 25)
+    .attr('x', legendX - 35)
     .attr('y',legendY + 10)
     .text('Less');
 

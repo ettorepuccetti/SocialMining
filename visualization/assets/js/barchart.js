@@ -25,7 +25,7 @@ function BarChart(){
 
         svg = selection.append("svg")
             .attr({width:"100%", height:height})
-            
+                
         me.updateChart()
 
         return me
@@ -33,16 +33,18 @@ function BarChart(){
 
     
     me.updateChart = function() {
+        svg.selectAll('.mylegend').remove();
         svg.datum(prepareData(data))
             .call(chart)
             .append("text")
+            .attr('class','mylegend')
             .attr("fill", "#000")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
+            .attr("transform", "translate(100)")
+            .attr("y", height-20)
+            .attr("x", width)
             .attr("dy", "0.71em")
-            .attr("text-anchor", "end")
+            .attr("text-anchor", "middle")
             .text("Day="+ myApp.day()+" Hour="+myApp.hour());
-
         return me;
     }
 

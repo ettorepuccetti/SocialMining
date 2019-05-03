@@ -1,4 +1,7 @@
 function MyMap () {
+    var width = 400, height = 300;
+    var label = "access count"
+    var svg;
     var mymap;
     var accessToken = "pk.eyJ1Ijoicm9iZXJ0b3B1Y2NldHRpIiwiYSI6ImNqc2N5NzhmZTAxYXgzeXA0a2pyeGdpMDkifQ.1BIHGcbJ7OFoF8E04c5dng";
     var data;
@@ -14,6 +17,8 @@ function MyMap () {
   
         data = selection.datum();
 
+        svg = selection.append("svg")
+            .attr({width:"100%", height:height})
         
         me.drawCircles();
         

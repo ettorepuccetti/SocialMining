@@ -45,7 +45,8 @@
 
 		<style type="text/css" media="screen">
 			#mapid { height: 400px; margin: 30px}
-			p {font: italic bold 12px/30px Georgia, serif;}
+			p {font:  14px/30px Georgia, serif;}
+			#tool {position: 'center'}
 		</style>
 
 	</head>
@@ -55,21 +56,22 @@
 		<div id="viz" class="row">
 			<p>
 				This is the first experiment of Wi-Fi data visualization from Pisa Univeristy Campus. <br>
-				Click on ToolBars to select one day and one hour slot or select ALL to visualize the whole period		
+				Click on Calendar to select one day and on one "hour-slot" (or ALL) to visualize the hour range of the day		
 			</p>
 			<div class="col-xs-12" id="calendar"></div>
-			<div class = "tool" id="toolbar_hour"></div>
-			<div id="mapid"></div>
-			<p>
-			These are used areas. Select one or more bars to visualize them on the map. Click twice or select nother day to view all areas again
-			<p/>
-			<div id="graph" class="col-xs-12"></div>
 			<P>
 			Click on one or more coulored dots to select the respective area on graph below or double click to invert the selection.<br>
-			Move the mouse on the vertical line to see the values of selected area across the days
+			Move the mouse on the vertical line to see the values of selected area across the hours
 			<p/>
 			<div id="clcid" class="col-xs-12"></div>
-	
+			<div class = "tool" id="toolbar_hour"></div>
+		</div>
+			<div id="mapid"></div>
+		<div id="viz2" class="row">
+			<p>
+			These are the used areas. Select one or more bars to visualize it or them on the map. Click twice or select another day on calendar to release areas
+			<p/>
+			<div id="graph" class="col-xs-12"></div>
 		</div>
 
 		<!-- Javascript to be executed -->
