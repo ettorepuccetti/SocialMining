@@ -26,8 +26,8 @@ function Calendar () {
     var yAxis = [];
 
     //todays date
-    var today = new Date();
-    today=addDays(today, -122)
+    var today = new Date()
+    // today=addDays(today, -122)
 
     //last Years date
     var lastYear = addDays(today,-365);

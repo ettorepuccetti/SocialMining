@@ -1,6 +1,7 @@
 function app(){
     
-    var day = "ALL"
+    var DateFormatter = d3.time.format("%d/%m/%Y");
+    var day = DateFormatter(new Date())
     var hour = "ALL"
     var hour1 = 0
     var hour2 = 24

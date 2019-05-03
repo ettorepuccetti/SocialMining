@@ -24,7 +24,7 @@ function BarChart(){
         data = selection.datum()
 
         svg = selection.append("svg")
-            .attr({width:"100%", height:height});
+            .attr({width:"100%", height:height})
             
         me.updateChart()
 
@@ -35,6 +35,13 @@ function BarChart(){
     me.updateChart = function() {
         svg.datum(prepareData(data))
             .call(chart)
+            .append("text")
+            .attr("fill", "#000")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", "0.71em")
+            .attr("text-anchor", "end")
+            .text("Day="+ myApp.day()+" Hour="+myApp.hour());
 
         return me;
     }

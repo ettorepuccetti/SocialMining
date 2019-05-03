@@ -11,8 +11,9 @@ function MyMap () {
             id: 'mapbox.streets',
             accessToken: accessToken
         }).addTo(mymap);
-
+  
         data = selection.datum();
+
         
         me.drawCircles();
         
