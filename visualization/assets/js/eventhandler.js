@@ -16,7 +16,6 @@ dispatch.on("changeDay", function(d){
 });
 dispatch.on("changeHour", function(d){
 	newhour = d
-	myApp.hour(d);
 	if (! (newhour == "ALL"))
 		{
 		myApp.hour1 (newhour.substring(0,2));

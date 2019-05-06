@@ -10,27 +10,15 @@ function app(){
     var toolbarday
     var map
     var dati
-       
-    //var fs = require('fs');
-    
+        
     function me(){
-    // calendar
+        // calendar
         Calendar()
 
         d3.csv("assets/data/access_per_day_per_ora.csv",function(error, data){
             if (error) throw error
 
-            // toolbar hours
-            toolbarhour = ToolbarHours();
-            d3.select("#toolbar_hour")
-                .call(toolbarhour)
-            d3.select("#toolbar_hour").select("div.btn-group") 
-                .selectAll("button") 
-                .classed("active",function(d){return d==hour}) 
-                .classed("btn-primary",function(d){return d==hour});
-
             // barchart
-    
             barchart = BarChart();
             d3.select("#graph")
                     .datum(data)

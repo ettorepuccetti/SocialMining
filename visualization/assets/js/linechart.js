@@ -17,12 +17,26 @@ function lineChart(){
     for (var i =0; i<24; i++) {
         list_ore.push(i)
     }
-    chart.xAxis.tickValues(list_ore);  
-        /*
-        ["00","04","06","08","10","12","14","16","18","20","24"].map(
-            function(d) {return parseInt(d)}
-        ));*/
 
+    chart.xAxis.tickValues(list_ore);  
+
+    chart.lines.dispatch.on('elementClick', function(d){
+        var hour
+        h=parseInt(d[0].point.x);
+        h1=h-1
+        h2=h+1
+        if (h == 0) {
+            hour="ALL"
+        }
+        else if (h<10) {
+            hour="0"+h1.toString()+"-0"+h2.toString()
+        }
+        else {
+            hour=h1.toString()+"-"+h2.toString()            
+        }
+        myApp.hour(hour);
+        dispatch.changeHour(hour);
+    });
 
     nv.utils.windowResize(function() { chart.update() });
     

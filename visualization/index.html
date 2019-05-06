@@ -53,27 +53,31 @@
 
 	<body class=container>
 		<h1 align="center"> Social Mining </h1>
-		<div id="viz" class="row">
+		<div id="viz" class="row" align="center" >
 			<p>
-				This is the first experiment of Wi-Fi data visualization from Pisa Univeristy Campus. <br>
-				Click on Calendar to select one day and on one "hour-slot" (or ALL) to visualize the hour range of the day		
+				This is the first experiment of Wi-Fi data visualization from Pisa University Campus. <br>
 			</p>
-			<div class="col-xs-12" id="calendar"></div>
+			<div class="col-xs-12" id="calendar" align="center"></div>
+			<p>
+				Click on Calendar to select one day		
+			</p>
+			<hr align="center" size=”1″ width=”300″ color=”red” noshade>
 			<P>
-			Click on one or more coulored dots to select the respective area on graph below or double click to invert the selection.<br>
+			On the graph below, click on one or more coulored dots to enable/disable the respective area on graph below or double click to invert the selection.<br>
+			</p>
+			<div id="clcid" class="col-xs-12" align="center"></div>
+			<p>
 			Move the mouse on the vertical line to see the values of selected area across the hours
-			<p/>
-			<div id="clcid" class="col-xs-12"></div>
-			<div class = "tool" id="toolbar_hour"></div>
+			</p>		
+			Click on one hour-line to visualize that hour range of the day (hour="0" means whole day).
+			<hr align="center" size=”1″ width=”300″ color=”red” noshade>			
+			<div id="graph" class="col-xs-12" align="center"></div>	
+			<p>
+			These are the most used areas. Select one (or more) bar(s) to visualize it (or them) on the map. Click twice or select another day on calendar to release areas
+			</p>		
+			<hr align="center" size=”1″ width=”300″ color=”red” noshade>
 		</div>
 			<div id="mapid"></div>
-		<div id="viz2" class="row">
-			<p>
-			These are the used areas. Select one or more bars to visualize it or them on the map. Click twice or select another day on calendar to release areas
-			<p/>
-			<div id="graph" class="col-xs-12"></div>
-		</div>
-
 		<!-- Javascript to be executed -->
 		<script src="assets/js/main.js" type="text/javascript" charset="utf-8"></script>
 	</body>
