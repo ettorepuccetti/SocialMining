@@ -249,7 +249,9 @@ function Calendar () {
         .on('mouseout',function(d){
         svg.selectAll('.tip').remove();
         })
-        .on("click", function(d){ 
+        .on("click", function(d){
+            myApp.hour("ALL")
+            dispatch.changeHour("ALL"); 
             dispatch.changeDay(DateFormatter(d.date)); 
         }); 
     });

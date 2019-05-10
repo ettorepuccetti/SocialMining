@@ -23,16 +23,21 @@ function lineChart(){
     chart.lines.dispatch.on('elementClick', function(d){
         var hour
         h=parseInt(d[0].point.x);
-        h1=h-1
+        h1=h
         h2=h+1
-        if (h == 0) {
-            hour="ALL"
+        if (h1<10) {
+            hour="0"+h1.toString()+"-"
         }
-        else if (h<10) {
-            hour="0"+h1.toString()+"-0"+h2.toString()
+        else    
+            {
+            hour=h1.toString()+"-"       
         }
-        else {
-            hour=h1.toString()+"-"+h2.toString()            
+        if (h2<10) {
+            hour=hour+"0"+h2.toString()
+        }
+        else    
+            {
+            hour=hour+h2.toString()      
         }
         myApp.hour(hour);
         dispatch.changeHour(hour);
