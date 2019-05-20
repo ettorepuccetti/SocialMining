@@ -6,6 +6,7 @@ dispatch.on("changeDay", function(d){
 	myApp.day(d);
 	myApp.area(null);
 	myApp.updateChart();
+	myApp.updateLineChart();
 	myApp.updateMap();
 	console.log("click day", d);
 	d3.select("#toolbar_day").select("div.btn-group") 
@@ -15,7 +16,6 @@ dispatch.on("changeDay", function(d){
 });
 dispatch.on("changeHour", function(d){
 	newhour = d
-	myApp.hour(d);
 	if (! (newhour == "ALL"))
 		{
 		myApp.hour1 (newhour.substring(0,2));

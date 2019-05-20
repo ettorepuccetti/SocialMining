@@ -1,4 +1,7 @@
 function MyMap () {
+    var width = 400, height = 300;
+    var label = "access count"
+    var svg;
     var mymap;
     var accessToken = "pk.eyJ1Ijoicm9iZXJ0b3B1Y2NldHRpIiwiYSI6ImNqc2N5NzhmZTAxYXgzeXA0a2pyeGdpMDkifQ.1BIHGcbJ7OFoF8E04c5dng";
     var data;
@@ -11,8 +14,11 @@ function MyMap () {
             id: 'mapbox.streets',
             accessToken: accessToken
         }).addTo(mymap);
-
+  
         data = selection.datum();
+
+        svg = selection.append("svg")
+            .attr({width:"100%", height:height})
         
         me.drawCircles();
         
@@ -30,7 +36,7 @@ function MyMap () {
         var hour = myApp.hour();
         
         var filteredDay = data.filter(function(d,i) {
-            return (d.timestamp.split("/")[0] == day.split(" ")[0] || day=="ALL")
+            return (d.timestamp == day || day=="ALL")
         })
 
 
@@ -55,7 +61,8 @@ function MyMap () {
                     color: color,
                     fillColor: color,
                     fillOpacity: 0.5,
-                    radius: Math.sqrt(d.count) * 2.0
+                    radius: Math.sqrt(d.count) * 4.0/Math.PI
+                    
                 })
             circle.bindPopup(d.area + "<br /> accessi: "+ d.count);
             circle.on('mouseover', e => {circle.openPopup();})

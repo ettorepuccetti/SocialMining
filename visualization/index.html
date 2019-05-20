@@ -23,9 +23,20 @@
 		integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
 		crossorigin=""></script>
 
+		<script src="https://d3js.org/d3-color.v1.min.js"></script>
+		<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+		<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+		<script>
+
+		var yellow = d3.interpolateYlGn(0), // "rgb(255, 255, 229)"
+    	yellowGreen = d3.interpolateYlGn(0.5), // "rgb(120, 197, 120)"
+    	green = d3.interpolateYlGn(1); // "rgb(0, 69, 41)"
+
+		</script>
+
 		<!-- Custom Javascript scripts -->
 		<script src="assets/js/eventhandler.js" type="text/javascript" charset="utf-8"></script>
-		<script src="assets/js/toolbarday.js" type="text/javascript" charset="utf-8"></script>
+		<script src="assets/js/calendar.js" type="text/javascript" charset="utf-8"></script>
 		<script src="assets/js/toolbarhour.js" type="text/javascript" charset="utf-8"></script>
 		<script src="assets/js/barchart.js" type="text/javascript" charset="utf-8"></script>
 		<script src="assets/js/map.js" type="text/javascript" charset="utf-8"></script>
@@ -34,33 +45,39 @@
 
 		<style type="text/css" media="screen">
 			#mapid { height: 400px; margin: 30px}
-			p {font: italic bold 12px/30px Georgia, serif;}
+			p {font:  14px/30px Georgia, serif;}
+			#tool {position: 'center'}
 		</style>
 
 	</head>
 
 	<body class=container>
 		<h1 align="center"> Social Mining </h1>
-		<div id="viz" class="row">
+		<div id="viz" class="row" align="center" >
 			<p>
-				This is the first experiment of Wi-Fi data visualization from Pisa Univeristy Campus. <br>
-				Click on ToolBar to select one day or select ALL to visualize the whole period		
+				This is the first experiment of Wi-Fi data visualization from Pisa University Campus. <br>
 			</p>
-			<div class = "tool" id="toolbar_day"></div>
-			<div class = "tool" id="toolbar_hour"></div>
-			<div id="mapid"></div>
+			<div class="col-xs-12" id="calendar" align="center"></div>
 			<p>
-			These are the 20 most used areas. Select one or more bar to visualize them on the map. Click twice or select nother day to view all areas again
-			<p/>
-			<div id="graph" class="col-xs-12"></div>
+				Click on Calendar to select one day		
+			</p>
+			<hr align="center" size=”1″ width=”300″ color=”red” noshade>
 			<P>
-			Click on one or more coulored dots to select the respective area on graph below or double click to invert the selection.<br>
-			Move the mouse on the vertical line to see the values of selected area across the days
-			<p/>
-			<div id="clcid" class="col-xs-12"></div>
-	
+			Click on one or more coulored dots to enable/disable the respective area on graph below or double click to invert the selection.<br>
+			</p>
+			<div id="clcid" class="col-xs-12" align="center"></div>
+			<p>
+			Move the mouse on the vertical line to see the values of selected area across the hours
+			</p>		
+			Click on one hour-line to visualize the hour range of the day. Select the day on calendar again to view the full day 
+			<hr align="center" size=”1″ width=”300″ color=”red” noshade>			
+			<div id="graph" class="col-xs-12" align="center"></div>	
+			<p>
+			These are the most used areas. Select one (or more) bar(s) to visualize it (or them) on the map. Click twice or select another day on calendar to release areas
+			</p>		
+			<hr align="center" size=”1″ width=”300″ color=”red” noshade>
 		</div>
-
+			<div id="mapid"></div>
 		<!-- Javascript to be executed -->
 		<script src="assets/js/main.js" type="text/javascript" charset="utf-8"></script>
 	</body>

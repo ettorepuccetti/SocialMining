@@ -5,10 +5,11 @@ function BarChart(){
     var chart = nv.models.discreteBarChart()
     var data
     var max;
-   
-    chart.yScale(d3.scale.sqrt());
+
+    chart.yScale(d3.scale.linear());
     chart.showXAxis(false);
-    
+    chart.color(d3.schemeBlues[3]);
+     
     chart.discretebar.dispatch.on('elementClick', function(d){
         if (d.data.x == myApp.area()) { myApp.area(null) } 
         else { myApp.area(d.data.x) }
@@ -23,8 +24,8 @@ function BarChart(){
         data = selection.datum()
 
         svg = selection.append("svg")
-            .attr({width:"100%", height:height});
-            
+            .attr({width:"100%", height:height})
+                
         me.updateChart()
 
         return me
@@ -32,16 +33,25 @@ function BarChart(){
 
     
     me.updateChart = function() {
+        svg.selectAll('.mylegend').remove();
         svg.datum(prepareData(data))
             .call(chart)
-
+            .append("text")
+            .attr('class','mylegend')
+            .attr("fill", "#000")
+            .attr("transform", "translate(100)")
+            .attr("y", height-20)
+            .attr("x", width)
+            .attr("dy", "0.71em")
+            .attr("text-anchor", "middle")
+            .text("Day="+ myApp.day()+" Hour="+myApp.hour());
         return me;
     }
 
     function prepareData(data) {
         var day = myApp.day()
         var filteredDay = data.filter(function(d,i) {
-            return (d.timestamp.split("/")[0] == day.split(" ")[0] || day=="ALL")
+            return (d.timestamp == day || day=="ALL")
         })
         filteredDay=groupBy(filteredDay,"area")
         var filteredDaySorted=sort_object(filteredDay);
@@ -60,23 +70,22 @@ function BarChart(){
         return r
     }
 
-function sort_object(obj) {
+    function sort_object(obj) {
         items = Object.keys(obj).map(function(key) {
             return [obj[key]["count"], obj[key]];
         });
         items.sort(function(a, b) {
-            return b - a;
+            return b[0] - a[0];
         });
         sorted_obj=[]
-        
+
         $.each(items, function(k, v) {
             use_key = k;
             use_value = v[1];
             sorted_obj[use_key] = use_value
         })
         return(sorted_obj)
-    } 
-
+    }
 
 
     return me
