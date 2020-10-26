@@ -3,15 +3,15 @@ function MyMap () {
     var label = "access count"
     var svg;
     var mymap;
-    var accessToken = "pk.eyJ1Ijoicm9iZXJ0b3B1Y2NldHRpIiwiYSI6ImNqc2N5NzhmZTAxYXgzeXA0a2pyeGdpMDkifQ.1BIHGcbJ7OFoF8E04c5dng";
+    var accessToken = "pk.eyJ1Ijoicm9iZXJ0b3B1Y2NldHRpIiwiYSI6ImNrZ3Fmd2ZmaDBsMnIzMGw4cndzeDVxdnEifQ.XUBdDX7tAxYNneJw2cJFGw";
     var data;
     var circlearray = [];   
     function me (selection) {
         mymap = L.map('mapid').setView([43.712, 10.40], 12);
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
-            id: 'mapbox.streets',
+            id: 'mapbox/streets-v11',
             accessToken: accessToken
         }).addTo(mymap);
   
